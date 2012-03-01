@@ -9,7 +9,7 @@ class memcached {
     owner  => root,
     group  => root,
     mode   => '0644',
-    source => 'puppet:///memcached/memcached.conf',
+    source => 'puppet:///modules/memcached/memcached.conf',
   }
   
   service { 'memcached':
