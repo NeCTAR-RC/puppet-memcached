@@ -17,4 +17,16 @@ class memcached {
     require => Package['memcached'],
   }
 
+  package {'python-memcache':
+    ensure => installed,
+  }
+
+  file { '/usr/lib/nagios/plugins/check_memcached.py':
+    ensure => file,
+    owner => root,
+    group => root,
+    mode => '0755',
+    source => 'puppet:///modules/memcached/check_memcached.py',
+  }
+
 }
