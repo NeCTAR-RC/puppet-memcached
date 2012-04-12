@@ -10,6 +10,7 @@ class memcached {
     group  => root,
     mode   => '0644',
     source => 'puppet:///modules/memcached/memcached.conf',
+    notify => Service['memcached'],
   }
   
   service { 'memcached':
