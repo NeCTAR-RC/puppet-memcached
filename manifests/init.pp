@@ -22,15 +22,4 @@ class memcached {
     ensure => installed,
   }
 
-  if defined(Package['nagios-plugins-basic']) {
-
-    file { '/usr/lib/nagios/plugins/check_memcached.py':
-      ensure  => file,
-      owner   => root,
-      group   => root,
-      mode    => '0755',
-      source  => 'puppet:///modules/memcached/check_memcached.py',
-      require => Package['nagios-plugins-basic'],
-    }
-  }
 }
