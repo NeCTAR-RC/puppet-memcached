@@ -1,10 +1,10 @@
 class memcached {
 
-  package {"memcached":
+  package {'memcached':
     ensure => installed,
   }
-  
-  file {"/etc/memcached.conf":
+
+  file {'/etc/memcached.conf':
     ensure => present,
     owner  => root,
     group  => root,
@@ -12,7 +12,7 @@ class memcached {
     source => 'puppet:///modules/memcached/memcached.conf',
     notify => Service['memcached'],
   }
-  
+
   service { 'memcached':
     ensure  => running,
     require => Package['memcached'],
