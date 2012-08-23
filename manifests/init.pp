@@ -18,8 +18,24 @@ class memcached {
     require => Package['memcached'],
   }
 
-  package {'python-memcache':
-    ensure => installed,
+  if !defined(Package['python-memcache']) {
+    package {'python-memcache':
+      ensure => installed,
+    }
   }
 
+  nagios::nrpe::service {
+    'memcached':
+      check_command => '/usr/local/lib/nagios/plugins/check_memcached -H localhost';
+  }
+
+  file {'/usr/local/lib/nagios/plugins/check_memcached':
+    ensure  => file,
+    owner   => root,
+    group   => root,
+    mode    => '0755',
+    source  => 'puppet:///modules/memcached/check_memcached.py',
+    require => [ File['/usr/local/lib/nagios/plugins'],
+                 Package['python-memcache'] ];
+  }
 }
