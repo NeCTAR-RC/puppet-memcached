@@ -26,7 +26,7 @@ class memcached {
 
   nagios::nrpe::service {
     'memcached':
-      check_command => '/usr/local/lib/nagios/plugins/check_memcached -H localhost';
+      check_command => "/usr/local/lib/nagios/plugins/check_memcached -H ${::fqdn}";
   }
 
   file {'/usr/local/lib/nagios/plugins/check_memcached':
