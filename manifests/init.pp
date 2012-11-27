@@ -18,11 +18,7 @@ class memcached {
     require => Package['memcached'],
   }
 
-  if !defined(Package['python-memcache']) {
-    package {'python-memcache':
-      ensure => installed,
-    }
-  }
+  realize Package['python-memcache']
 
   nagios::nrpe::service {
     'memcached':
