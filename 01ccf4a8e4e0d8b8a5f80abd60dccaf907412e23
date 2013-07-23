@@ -1,0 +1,8 @@
+Change-Id: I01ccf4a8e4e0d8b8a5f80abd60dccaf907412e23
+Code-Review+2: Sam Morrison <sam.morrison@unimelb.edu.au>
+Verified+1: Jenkins <rc-melbourne@nectar.org.au>
+Submitted-by: Sam Morrison <sam.morrison@unimelb.edu.au>
+Submitted-at: Tue, 23 Jul 2013 11:56:53 +1000
+Reviewed-on: https://review.rc.nectar.org.au/609
+Project: NeCTAR-RC/puppet-memcached
+Branch: refs/heads/production
