@@ -25,6 +25,13 @@ class memcached {
       check_command => "/usr/local/lib/nagios/plugins/check_memcached -H ${::fqdn}";
   }
 
+  $infra_hosts = hiera('firewall::infra_hosts', [])
+  firewall::multisource {[ prefix($infra_hosts, '100 memcache,') ]:
+    action => 'accept',
+    proto  => 'tcp',
+    dport  => 11211,
+  }
+
   file {'/usr/local/lib/nagios/plugins/check_memcached':
     ensure  => file,
     owner   => root,
