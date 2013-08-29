@@ -1,4 +1,4 @@
-class memcached($slab_size='1048576') {
+class memcached($slab_size='1048576', $max_mem='1024') {
 
   package {'memcached':
     ensure => installed,
