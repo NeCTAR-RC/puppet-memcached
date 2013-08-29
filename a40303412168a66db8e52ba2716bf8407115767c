@@ -1,0 +1,7 @@
+Code-Review+2: Kieran Spear <kispear@gmail.com>
+Verified+1: Jenkins <rc-melbourne@nectar.org.au>
+Submitted-by: Kieran Spear <kispear@gmail.com>
+Submitted-at: Thu, 29 Aug 2013 16:09:56 +1000
+Reviewed-on: https://review.rc.nectar.org.au/709
+Project: NeCTAR-RC/puppet-memcached
+Branch: refs/heads/master
