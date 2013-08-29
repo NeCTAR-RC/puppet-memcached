@@ -1,0 +1,7 @@
+Code-Review+2: Sam Morrison <sam.morrison@unimelb.edu.au>
+Verified+1: Jenkins <rc-melbourne@nectar.org.au>
+Submitted-by: Sam Morrison <sam.morrison@unimelb.edu.au>
+Submitted-at: Thu, 29 Aug 2013 16:25:00 +1000
+Reviewed-on: https://review.rc.nectar.org.au/711
+Project: NeCTAR-RC/puppet-memcached
+Branch: refs/heads/production
