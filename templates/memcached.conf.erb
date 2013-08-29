@@ -45,3 +45,8 @@ logfile /var/log/memcached.log
 
 # Maximize core file limit
 # -r
+
+# Override the default size of each slab page. Default is 1mb. Default is 1m, minimum is 1k, max
+# is 128m. Adjusting this value changes the item size limit. Beware that this also increases the
+# number of slabs (use -v to view), and the overal memory usage of memcached.
+-I <%= @slab_size %>

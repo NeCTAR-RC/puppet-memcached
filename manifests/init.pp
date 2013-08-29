@@ -1,4 +1,4 @@
-class memcached {
+class memcached($slab_size='1048576') {
 
   package {'memcached':
     ensure => installed,
@@ -9,7 +9,7 @@ class memcached {
     owner  => root,
     group  => root,
     mode   => '0644',
-    source => 'puppet:///modules/memcached/memcached.conf',
+    content => template("memcached/memcached.conf.erb"),
     notify => Service['memcached'],
   }
 
