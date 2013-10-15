@@ -1,0 +1,8 @@
+Change-Id: I36d634877fbb960df78803e7eaf8d8250362aa9b
+Code-Review+2: Russell Sim <russell.sim@gmail.com>
+Verified+1: Russell Sim <russell.sim@gmail.com>
+Submitted-by: Russell Sim <russell.sim@gmail.com>
+Submitted-at: Wed, 16 Oct 2013 09:59:16 +1100
+Reviewed-on: https://review.rc.nectar.org.au/898
+Project: NeCTAR-RC/puppet-memcached
+Branch: refs/meta/config
