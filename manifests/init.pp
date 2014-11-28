@@ -1,16 +1,41 @@
-class memcached($slab_size='1048576', $max_mem='1024') {
+# This module installs and manages memcached and python-memcache,
+# defines an nrpe nagios check, and sets firewall rules.
+#
+# Parameters:
+#    slab_size
+#      The maximum item size in bytes that memcached will accept.
+#    max_mem
+#      The maximum amount of memory in MB to use for storing objects.
+#    file_handles
+#      The maximum number of file handles memcached may use.
+#
+# Requires: stdlib
+
+class memcached($slab_size='1048576',
+                $max_mem='1024',
+                $file_handles='4096'
+) {
 
   package {'memcached':
     ensure => installed,
   }
 
   file {'/etc/memcached.conf':
-    ensure => present,
-    owner  => root,
-    group  => root,
-    mode   => '0644',
-    content => template("memcached/memcached.conf.erb"),
-    notify => Service['memcached'],
+    ensure  => present,
+    owner   => root,
+    group   => root,
+    mode    => '0644',
+    content => template('memcached/memcached.conf.erb'),
+    notify  => Service['memcached'],
+  }
+
+  file {'/etc/default/memcached':
+    ensure  => present,
+    owner   => root,
+    group   => root,
+    mode    => '0644',
+    content => template('memcached/default.memcached.erb'),
+    notify  => Service['memcached'],
   }
 
   service { 'memcached':
@@ -18,11 +43,12 @@ class memcached($slab_size='1048576', $max_mem='1024') {
     require => Package['memcached'],
   }
 
-  realize Package['python-memcache']
+  ensure_packages(['python-memcache'])
 
   nagios::nrpe::service {
     'memcached':
-      check_command => "/usr/local/lib/nagios/plugins/check_memcached -H ${::fqdn}";
+      check_command =>
+        "/usr/local/lib/nagios/plugins/check_memcached -H ${::fqdn}";
   }
 
   $infra_hosts = hiera('firewall::infra_hosts', [])
@@ -38,7 +64,8 @@ class memcached($slab_size='1048576', $max_mem='1024') {
     group   => root,
     mode    => '0755',
     source  => 'puppet:///modules/memcached/check_memcached.py',
-    require => [ File['/usr/local/lib/nagios/plugins'],
-                 Package['python-memcache'] ];
+    require =>
+      [ File['/usr/local/lib/nagios/plugins'],
+        Package['python-memcache'] ];
   }
 }
