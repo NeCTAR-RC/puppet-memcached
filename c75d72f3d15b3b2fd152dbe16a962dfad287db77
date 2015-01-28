@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa2559ec_102b8c83",
+        "filename": "manifests/python.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2015-01-28T05:23:15Z",
+      "side": 1,
+      "message": "should be python-memcache ? \n\n# aptitude show python-memcached\nE: Unable to locate package python-memcached\n# aptitude show python-memcache\nPackage: python-memcache                 \nNew: yes\nState: not installed\nVersion: 1.53-1build1\nPriority: optional\nSection: python\nMaintainer: Ubuntu Developers \u003cubuntu-devel-discuss@lists.ubuntu.com\u003e\nArchitecture: all\nUncompressed Size: 101 k\nDepends: python (\u003e\u003d 2.7), python (\u003c 2.8), python:any (\u003e\u003d 2.7.1-0ubuntu2)\nSuggests: memcached\nDescription: pure python memcached client\n This software is a 100% Python interface to the memcached memory cache daemon. It is the client side software which\n allows storing values in one or more, possibly remote, memcached servers.\nHomepage: http://www.tummy.com/Community/software/python-memcached/",
+      "revId": "c75d72f3d15b3b2fd152dbe16a962dfad287db77",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
