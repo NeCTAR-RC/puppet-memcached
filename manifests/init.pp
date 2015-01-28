@@ -43,7 +43,7 @@ class memcached($slab_size='1048576',
     require => Package['memcached'],
   }
 
-  ensure_packages(['python-memcache'])
+  include memcached::python
 
   nagios::nrpe::service {
     'memcached':
