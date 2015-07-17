@@ -52,7 +52,7 @@ class memcached($slab_size='1048576',
   }
 
   $infra_hosts = hiera('firewall::infra_hosts', [])
-  firewall::multisource {[ prefix($infra_hosts, '100 memcache,') ]:
+  nectar::firewall::multisource {[ prefix($infra_hosts, '100 memcache,') ]:
     action => 'accept',
     proto  => 'tcp',
     dport  => 11211,
