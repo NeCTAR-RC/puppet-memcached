@@ -6,14 +6,24 @@
 #      The maximum item size in bytes that memcached will accept.
 #    max_mem
 #      The maximum amount of memory in MB to use for storing objects.
-#    file_handles
-#      The maximum number of file handles memcached may use.
+#    max_connections
+#      The maximum number of simultaneous incoming connections.
+#    listen
+#      The which IP address to listen on.
+#    port
+#      The port to listen on.
+#    user
+#      User account to run process as.
 #
 # Requires: stdlib
 
-class memcached($slab_size='1048576',
-                $max_mem='1024',
-                $file_handles='4096'
+class memcached (
+  $max_mem='1024',
+  $max_connections='1024',
+  $listen='0.0.0.0',
+  $port='11211',
+  $user='memcache',
+  $slab_size='1048576'
 ) {
 
   package {'memcached':
