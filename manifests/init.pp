@@ -55,10 +55,22 @@ class memcached (
 
   include memcached::python
 
+  # Generate 80%/90% values for nagios current connections check
+  $curr_connections_warning = inline_template('<%= (@max_connections.to_i * 0.8).floor -%>')
+  $curr_connections_error = inline_template('<%= (@max_connections.to_i * 0.9).floor -%>')
+
   nagios::nrpe::service {
     'memcached':
       check_command =>
         "/usr/local/lib/nagios/plugins/check_memcached -H ${::fqdn}";
+
+    'memcached-curr_connections':
+      check_command =>
+        "/usr/local/lib/nagios/plugins/check_memcached_metric -H ${::fqdn} -M curr_connections -W ${curr_connections_warning} -C ${curr_connections_error}";
+
+    'memcached-evictions':
+      check_command =>
+        "/usr/local/lib/nagios/plugins/check_memcached_metric -H ${::fqdn} -M evictions -W 1 -C 10";
   }
 
   $infra_hosts = hiera('firewall::infra_hosts', [])
@@ -78,4 +90,14 @@ class memcached (
       [ File['/usr/local/lib/nagios/plugins'],
         Package['python-memcache'] ];
   }
+
+  file {'/usr/local/lib/nagios/plugins/check_memcached_metric':
+    ensure  => file,
+    owner   => root,
+    group   => root,
+    mode    => '0755',
+    source  => 'puppet:///modules/memcached/check_memcached_metric.py',
+    require => File['/usr/local/lib/nagios/plugins'],
+  }
+
 }
