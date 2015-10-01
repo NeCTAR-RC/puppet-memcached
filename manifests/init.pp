@@ -59,7 +59,12 @@ class memcached (
     'memcached':
       check_command =>
         "/usr/local/lib/nagios/plugins/check_memcached -H ${::fqdn}";
+
+    'memcached-curr_connections':
+      check_command =>
+        "/usr/local/lib/nagios/plugins/check_memcached_metric -H ${::fqdn} -M curr_connections -V ${max_connections}";
   }
+
 
   $infra_hosts = hiera('firewall::infra_hosts', [])
   nectar::firewall::multisource {[ prefix($infra_hosts, '100 memcache,') ]:
@@ -78,4 +83,14 @@ class memcached (
       [ File['/usr/local/lib/nagios/plugins'],
         Package['python-memcache'] ];
   }
+
+  file {'/usr/local/lib/nagios/plugins/check_memcached_metric':
+    ensure  => file,
+    owner   => root,
+    group   => root,
+    mode    => '0755',
+    source  => 'puppet:///modules/memcached/check_memcached_metric.py',
+    require => File['/usr/local/lib/nagios/plugins'],
+  }
+
 }
