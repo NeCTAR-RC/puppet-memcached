@@ -2,6 +2,40 @@
   "comments": [
     {
       "key": {
+        "uuid": "9a245df4_f6fe856a",
+        "filename": "files/check_memcached_metric.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2015-10-01T01:50:18Z",
+      "side": 1,
+      "message": "This is a nice script, haven\u0027t seen telnetlib used before, very cool :)",
+      "revId": "af6837b23078f43e216b84c39c7747924f26dd07",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a245df4_56d8311d",
+        "filename": "files/check_memcached_metric.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 54,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2015-10-01T01:50:18Z",
+      "side": 1,
+      "message": "do you mean memcached here?",
+      "revId": "af6837b23078f43e216b84c39c7747924f26dd07",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a245df4_36cadd4f",
         "filename": "files/check_memcached_metric.py",
         "patchSetId": 1
@@ -19,6 +53,74 @@
     },
     {
       "key": {
+        "uuid": "9a245df4_f6e7a5e2",
+        "filename": "files/check_memcached_metric.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2015-10-01T01:50:18Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "af6837b23078f43e216b84c39c7747924f26dd07",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a245df4_b6040d7f",
+        "filename": "files/check_memcached_metric.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2015-10-01T01:50:18Z",
+      "side": 1,
+      "message": "if we are setting default critical and warning levels, should we set a default value for metric as well?",
+      "revId": "af6837b23078f43e216b84c39c7747924f26dd07",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a245df4_b6dd2d17",
+        "filename": "files/check_memcached_metric.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 81,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2015-10-01T01:50:18Z",
+      "side": 1,
+      "message": "If the metric returns nothing, is that a sign that memcached is not working, so should this be a critical error, ie exit status (2)?",
+      "revId": "af6837b23078f43e216b84c39c7747924f26dd07",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a245df4_96090998",
+        "filename": "files/check_memcached_metric.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2015-10-01T01:50:18Z",
+      "side": 1,
+      "message": "Failure to divide here, ie div by zero or div by string, would be \u0027low level failure internal to the plugin\u0027 so perhaps exit 3, as per the plugin return codes at https://nagios-plugins.org/doc/guidelines.html",
+      "revId": "af6837b23078f43e216b84c39c7747924f26dd07",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a245df4_16c7d946",
         "filename": "files/check_memcached_metric.py",
         "patchSetId": 1
@@ -30,6 +132,40 @@
       "writtenOn": "2015-10-01T01:31:07Z",
       "side": 1,
       "message": "WS",
+      "revId": "af6837b23078f43e216b84c39c7747924f26dd07",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a245df4_96e2a9d3",
+        "filename": "files/check_memcached_metric.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2015-10-01T01:50:18Z",
+      "side": 1,
+      "message": "whitespace",
+      "revId": "af6837b23078f43e216b84c39c7747924f26dd07",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a245df4_d6ec21ca",
+        "filename": "files/check_memcached_metric.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000105
+      },
+      "writtenOn": "2015-10-01T01:50:18Z",
+      "side": 1,
+      "message": "Just a bit curious, if you are calling sys.exit here, why not have main() return the exit codes to here, rather than calling sys.exit itself?",
       "revId": "af6837b23078f43e216b84c39c7747924f26dd07",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
       "unresolved": false
