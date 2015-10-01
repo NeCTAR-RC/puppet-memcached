@@ -172,6 +172,24 @@
     },
     {
       "key": {
+        "uuid": "9a245df4_b62b6dea",
+        "filename": "files/check_memcached_metric.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 105,
+      "author": {
+        "id": 1000077
+      },
+      "writtenOn": "2015-10-01T02:02:08Z",
+      "side": 1,
+      "message": "Copy and paste fail ;)",
+      "parentUuid": "9a245df4_d6ec21ca",
+      "revId": "af6837b23078f43e216b84c39c7747924f26dd07",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "9a245df4_76c45540",
         "filename": "manifests/init.pp",
         "patchSetId": 1
