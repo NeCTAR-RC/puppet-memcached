@@ -1,0 +1,61 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9a245df4_36cadd4f",
+        "filename": "files/check_memcached_metric.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 57,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2015-10-01T01:31:07Z",
+      "side": 1,
+      "message": "WS",
+      "revId": "af6837b23078f43e216b84c39c7747924f26dd07",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a245df4_16c7d946",
+        "filename": "files/check_memcached_metric.py",
+        "patchSetId": 1
+      },
+      "lineNbr": 90,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2015-10-01T01:31:07Z",
+      "side": 1,
+      "message": "WS",
+      "revId": "af6837b23078f43e216b84c39c7747924f26dd07",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "9a245df4_76c45540",
+        "filename": "manifests/init.pp",
+        "patchSetId": 1
+      },
+      "lineNbr": 65,
+      "author": {
+        "id": 1000000
+      },
+      "writtenOn": "2015-10-01T01:31:07Z",
+      "side": 1,
+      "message": "Sweet, this is nice. Can we also do a check for evictions, we ideally want 0 evictions",
+      "range": {
+        "startLine": 64,
+        "startChar": 0,
+        "endLine": 65,
+        "endChar": 118
+      },
+      "revId": "af6837b23078f43e216b84c39c7747924f26dd07",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5",
+      "unresolved": false
+    }
+  ]
+}
