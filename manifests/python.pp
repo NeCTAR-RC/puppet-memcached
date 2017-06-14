@@ -1,6 +1,9 @@
 # Installs python memcache bindings
 class memcached::python {
-
-  ensure_packages(['python-memcache'])
+  
+  ensure_resources('package', { 'python-memcache' => {
+    name   => 'python-memcache',
+    tag    => ['openstack'],
+    }})
 
 }
