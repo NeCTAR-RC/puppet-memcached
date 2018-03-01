@@ -63,14 +63,9 @@ class memcached (
     'memcached':
       check_command =>
         "/usr/local/lib/nagios/plugins/check_memcached -H ${::fqdn}";
-
     'memcached-curr_connections':
       check_command =>
         "/usr/local/lib/nagios/plugins/check_memcached_metric -H ${::fqdn} -M curr_connections -W ${curr_connections_warning} -C ${curr_connections_error}";
-
-    'memcached-evictions':
-      check_command =>
-        "/usr/local/lib/nagios/plugins/check_memcached_metric -H ${::fqdn} -M evictions -W 1 -C 10";
   }
 
   $infra_hosts = hiera('firewall::infra_hosts', [])
