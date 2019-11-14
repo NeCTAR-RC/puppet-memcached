@@ -1,0 +1,7 @@
+Verified+1: Jenkins <no-reply+jenkins@nectar.org.au>
+Code-Review+2: Sam Morrison <sam.morrison@unimelb.edu.au>
+Submitted-by: Jake Yip <jake.yip@unimelb.edu.au>
+Submitted-at: Thu, 14 Nov 2019 14:26:09 +1100
+Reviewed-on: https://review.rc.nectar.org.au/c/NeCTAR-RC/puppet-memcached/+/20389
+Project: NeCTAR-RC/puppet-memcached
+Branch: refs/heads/master
