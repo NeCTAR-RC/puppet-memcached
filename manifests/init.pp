@@ -53,8 +53,6 @@ class memcached (
     require => Package['memcached'],
   }
 
-  include memcached::python
-
   # Generate 80%/90% values for nagios current connections check
   $curr_connections_warning = inline_template('<%= (@max_connections.to_i * 0.8).floor -%>')
   $curr_connections_error = inline_template('<%= (@max_connections.to_i * 0.9).floor -%>')
@@ -75,6 +73,8 @@ class memcached (
     dport  => 11211,
   }
 
+  ensure_packages('python3-memcache')
+
   file {'/usr/local/lib/nagios/plugins/check_memcached':
     ensure  => file,
     owner   => root,
@@ -83,7 +83,7 @@ class memcached (
     source  => 'puppet:///modules/memcached/check_memcached.py',
     require =>
       [ File['/usr/local/lib/nagios/plugins'],
-        Package['python-memcache'] ];
+        Package['python3-memcache'] ];
   }
 
   file {'/usr/local/lib/nagios/plugins/check_memcached_metric':
@@ -92,7 +92,8 @@ class memcached (
     group   => root,
     mode    => '0755',
     source  => 'puppet:///modules/memcached/check_memcached_metric.py',
-    require => File['/usr/local/lib/nagios/plugins'],
+    require => [File['/usr/local/lib/nagios/plugins'],
+                Package['python3-memcache'] ];
   }
 
 }
