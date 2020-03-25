@@ -1,14 +1,13 @@
-#! /usr/bin/python
+#! /usr/bin/env python3
 
 import sys
-import os
-import time
 import optparse
 
 import telnetlib
 
 
 client = telnetlib.Telnet()
+
 
 def cast(value):
     """Cast value to float or int, if possible"""
@@ -88,6 +87,7 @@ def main():
     else:
         print("OK: Memcached %s %d" % (options.metric, metric))
         sys.exit(0)
+
 
 if __name__ == "__main__":
     main()
