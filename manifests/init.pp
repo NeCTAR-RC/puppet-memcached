@@ -86,7 +86,7 @@ class memcached (
     source  => 'puppet:///modules/memcached/check_memcached.py',
     require =>
       [ File['/usr/local/lib/nagios/plugins'],
-        Package['python3-memcache'] ];
+        Package['python-memcache'] ];
   }
 
   file {'/usr/local/lib/nagios/plugins/check_memcached_metric':
@@ -95,7 +95,9 @@ class memcached (
     group   => root,
     mode    => '0755',
     source  => 'puppet:///modules/memcached/check_memcached_metric.py',
-    require => File['/usr/local/lib/nagios/plugins'],
+    require =>
+      [ File['/usr/local/lib/nagios/plugins'],
+        Package['python-memcache'] ];
   }
 
 }
