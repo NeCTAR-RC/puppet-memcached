@@ -73,10 +73,10 @@ class memcached (
     dport  => 11211,
   }
 
-  ensure_resources('package', { 'python3-memcache' => {
+  ensure_resources('package', { 'python-memcache' => {
     name   => 'python3-memcache',
     tag    => ['openstack'],
-  }})
+    }})
 
   file {'/usr/local/lib/nagios/plugins/check_memcached':
     ensure  => file,
@@ -96,7 +96,7 @@ class memcached (
     mode    => '0755',
     source  => 'puppet:///modules/memcached/check_memcached_metric.py',
     require => [File['/usr/local/lib/nagios/plugins'],
-                Package['python3-memcache'] ];
+                Package['python-memcache'] ];
   }
 
 }
