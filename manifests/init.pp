@@ -73,10 +73,10 @@ class memcached (
     dport  => 11211,
   }
 
-  ensure_resources('package', { 'python-memcache' => {
-    name   => 'python3-memcache',
-    tag    => ['openstack'],
-    }})
+  ensure_packages('python-memcache', {
+    name => 'python3-memcache',
+    tag  => ['openstack'],
+    })
 
   file {'/usr/local/lib/nagios/plugins/check_memcached':
     ensure  => file,
