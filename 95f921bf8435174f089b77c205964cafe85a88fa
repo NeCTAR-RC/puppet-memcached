@@ -16,6 +16,23 @@
       "message": "HOLD until modules upgraded",
       "revId": "95f921bf8435174f089b77c205964cafe85a88fa",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "255a0cc1_a5e3d4cf",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000104
+      },
+      "writtenOn": "2021-07-27T08:18:26Z",
+      "side": 1,
+      "message": "Looks good, will be merged same time as Change I3b895d67ec6892c64dcf88243907e7c7647d6553",
+      "revId": "95f921bf8435174f089b77c205964cafe85a88fa",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5"
     }
   ]
 }
