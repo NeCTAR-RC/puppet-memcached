@@ -33,6 +33,23 @@
       "message": "Looks good, will be merged same time as Change I3b895d67ec6892c64dcf88243907e7c7647d6553",
       "revId": "95f921bf8435174f089b77c205964cafe85a88fa",
       "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5"
+    },
+    {
+      "unresolved": true,
+      "key": {
+        "uuid": "f765b7fe_79149b3d",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 2
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 1000264
+      },
+      "writtenOn": "2021-08-09T09:47:08Z",
+      "side": 1,
+      "message": "Change I3b895d67ec6892c64dcf88243907e7c7647d6553 has been merged, do we need to merge this?",
+      "revId": "95f921bf8435174f089b77c205964cafe85a88fa",
+      "serverId": "f182a8af-62ca-4ceb-ab81-14f8fec9c6c5"
     }
   ]
 }
