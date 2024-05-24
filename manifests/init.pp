@@ -60,10 +60,10 @@ class memcached (
   nagios::nrpe::service {
     'memcached':
       check_command =>
-        "/usr/local/lib/nagios/plugins/check_memcached -H ${::fqdn}";
+        "/usr/local/lib/nagios/plugins/check_memcached -H ${facts['networking']['fqdn']}";
     'memcached-curr_connections':
       check_command =>
-        "/usr/local/lib/nagios/plugins/check_memcached_metric -H ${::fqdn} -M curr_connections -W ${curr_connections_warning} -C ${curr_connections_error}";
+        "/usr/local/lib/nagios/plugins/check_memcached_metric -H ${facts['networking']['fqdn']} -M curr_connections -W ${curr_connections_warning} -C ${curr_connections_error}";
   }
 
   $infra_hosts = hiera('firewall::infra_hosts', [])
