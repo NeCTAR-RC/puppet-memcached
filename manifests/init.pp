@@ -18,12 +18,13 @@
 # Requires: stdlib
 
 class memcached (
-  $max_mem='1024',
-  $max_connections='1024',
-  $listen='0.0.0.0',
-  $port='11211',
-  $user='nobody',
-  $slab_size='1048576'
+  $max_mem               = '1024',
+  $max_connections       = '1024',
+  $listen                = '0.0.0.0',
+  $port                  = '11211',
+  $user                  = 'nobody',
+  $slab_size             = '1048576',
+  Boolean $include_extra = true,
 ) {
 
   package {'memcached':
@@ -53,51 +54,51 @@ class memcached (
     require => Package['memcached'],
   }
 
-  # Generate 80%/90% values for nagios current connections check
-  $curr_connections_warning = inline_template('<%= (@max_connections.to_i * 0.8).floor -%>')
-  $curr_connections_error = inline_template('<%= (@max_connections.to_i * 0.9).floor -%>')
+  if $include_extra {
 
-  nagios::nrpe::service {
-    'memcached':
-      check_command =>
+    # Generate 80%/90% values for nagios current connections check
+    $curr_connections_warning = inline_template('<%= (@max_connections.to_i * 0.8).floor -%>')
+    $curr_connections_error = inline_template('<%= (@max_connections.to_i * 0.9).floor -%>')
+
+    nagios::nrpe::service {
+      'memcached':
+        check_command =>
         "/usr/local/lib/nagios/plugins/check_memcached -H ${facts['networking']['fqdn']}";
-    'memcached-curr_connections':
-      check_command =>
+      'memcached-curr_connections':
+        check_command =>
         "/usr/local/lib/nagios/plugins/check_memcached_metric -H ${facts['networking']['fqdn']} -M curr_connections -W ${curr_connections_warning} -C ${curr_connections_error}";
-  }
+    }
 
-  $infra_hosts = hiera('firewall::infra_hosts', [])
-  nectar::firewall::multisource {[ prefix($infra_hosts, '100 memcache,') ]:
-    action => 'accept',
-    proto  => 'tcp',
-    dport  => 11211,
-  }
+    $infra_hosts = hiera('firewall::infra_hosts', [])
+    nectar::firewall::multisource {[ prefix($infra_hosts, '100 memcache,') ]:
+      jump  => 'ACCEPT',
+      proto => 'tcp',
+      dport => 11211,
+    }
 
-  ensure_packages('python-memcache', {
-    name => 'python3-memcache',
-    tag  => ['openstack'],
+    ensure_packages('python-memcache', {
+      name => 'python3-memcache',
+      tag  => ['openstack'],
     })
 
-  file {'/usr/local/lib/nagios/plugins/check_memcached':
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => '0755',
-    source  => 'puppet:///modules/memcached/check_memcached.py',
-    require =>
-      [ File['/usr/local/lib/nagios/plugins'],
-        Package['python-memcache'] ];
-  }
+    file {'/usr/local/lib/nagios/plugins/check_memcached':
+      ensure  => file,
+      owner   => root,
+      group   => root,
+      mode    => '0755',
+      source  => 'puppet:///modules/memcached/check_memcached.py',
+      require => [File['/usr/local/lib/nagios/plugins'],
+                  Package['python-memcache']],
+    }
 
-  file {'/usr/local/lib/nagios/plugins/check_memcached_metric':
-    ensure  => file,
-    owner   => root,
-    group   => root,
-    mode    => '0755',
-    source  => 'puppet:///modules/memcached/check_memcached_metric.py',
-    require =>
-      [ File['/usr/local/lib/nagios/plugins'],
-        Package['python-memcache'] ];
+    file {'/usr/local/lib/nagios/plugins/check_memcached_metric':
+      ensure  => file,
+      owner   => root,
+      group   => root,
+      mode    => '0755',
+      source  => 'puppet:///modules/memcached/check_memcached_metric.py',
+      require => [File['/usr/local/lib/nagios/plugins'],
+                  Package['python-memcache']],
+    }
   }
-
 }
