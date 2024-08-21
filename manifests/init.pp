@@ -56,6 +56,10 @@ class memcached (
 
   if $include_extra {
 
+    notify {'memcached::direct::deprecated':
+      message => 'Including the memcache class directly is deprecated. Please include nectar::profile:memcached',
+    }
+
     # Generate 80%/90% values for nagios current connections check
     $curr_connections_warning = inline_template('<%= (@max_connections.to_i * 0.8).floor -%>')
     $curr_connections_error = inline_template('<%= (@max_connections.to_i * 0.9).floor -%>')
