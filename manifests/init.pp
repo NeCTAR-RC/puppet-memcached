@@ -18,13 +18,13 @@
 # Requires: stdlib
 
 class memcached (
-  $max_mem               = '1024',
-  $max_connections       = '1024',
-  $listen                = '0.0.0.0',
-  $port                  = '11211',
-  $user                  = 'nobody',
-  $slab_size             = '1048576',
-  Boolean $include_extra = true,
+  Integer $max_mem               = 1024,
+  Integer $max_connections       = 1024,
+  Stdlib::IP::Address $listen    = '0.0.0.0',
+  Stdlib::Port $port             = 11211,
+  String $user                   = 'nobody',
+  Integer $slab_size             = 1048576,
+  Boolean $include_extra         = true,
 ) {
 
   package {'memcached':
